@@ -23,8 +23,7 @@ export async function initializeContract() {
   }
   export async function accountBalance() {
   return formatNearAmount(
-    (await window.walletConnection.account().getAccountBalance()).total,
-    2
+    (await window.walletConnection.account().getAccountBalance()).total,1
   );
 }
 
