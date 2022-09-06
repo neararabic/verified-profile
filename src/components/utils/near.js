@@ -27,9 +27,6 @@ export async function initializeContract() {
   );
 }
 
-export async function getAccountId() {
-  return window.walletConnection.getAccountId();
-}
 
 export function login() {
   window.walletConnection.requestSignIn(nearEnv.contractName);

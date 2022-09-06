@@ -1,2 +1,12 @@
-import { v4 as uuid4 } from "uuid";
-import { parseNearAmount } from "near-api-js/lib/utils/format";
+const GAS = 100000000000000;
+export function isAccountVerified({accountID}) {
+  return window.contract.isAccountVerified({ accountID });
+}
+
+export function createProfile() {
+  return window.contract.createProfile(); 
+}
+
+export async function verifyAccount({accountID,verification}){
+  await window.contract.verifyAccount({accountID, verification}, GAS); 
+}

@@ -33,8 +33,15 @@ const App = function AppWrapper() {
               />
             </Nav.Item>
           </Nav>
-          <h1>Waiting for the next step</h1>
+          <main>
+          {account.accountId === "Owner.testnet" ? (
+            <h1>This is the owner</h1>
+
+          ): (<h1> this is not the owner</h1>)}
+          </main>
         </Container>
+
+        
       ) : (
         <Cover name="Verified Accounts" login={login} coverImg={coverImg}/>
       )}
