@@ -33,7 +33,7 @@ const App = function AppWrapper() {
               />
             </Nav.Item>
           </Nav>
-          <h1>Waitting for the next step</h1>
+          <h1>Waiting for the next step</h1>
         </Container>
       ) : (
         <Cover name="Verified Accounts" login={login} coverImg={coverImg}/>
