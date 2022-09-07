@@ -6,6 +6,7 @@ import Wallet from "./components/Wallet";
 import coverImg from "./cover.png";
 import "./App.css";
 import Functions from "./components/Functions"
+import { alignPropType } from "react-bootstrap/esm/types";
 
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
@@ -36,6 +37,7 @@ const App = function AppWrapper() {
               />
             </Nav.Item>
           </Nav>
+          <dev> <h1 align="middle">Verified Profile</h1></dev>
           <main>
           {account.accountId === "Owner.testnet" ? (
             <h1>This is the owner</h1>
