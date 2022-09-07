@@ -5,7 +5,7 @@ import Cover from "./components/utils/Cover";
 import Wallet from "./components/Wallet";
 import coverImg from "./cover.png";
 import "./App.css";
-import Form from "./components/form"
+import Functions from "./components/Functions"
 
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
@@ -42,7 +42,7 @@ const App = function AppWrapper() {
             //ALI should do this part
           ): 
             (
-              <Form/>
+              <Functions/>
             )
           }
           </main>
