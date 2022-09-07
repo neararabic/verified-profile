@@ -5,10 +5,13 @@ import Cover from "./components/utils/Cover";
 import Wallet from "./components/Wallet";
 import coverImg from "./cover.png";
 import "./App.css";
+import Form from "./components/form"
 
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
   const [balance, setBalance] = useState("0");
+
+
   const getBalance = useCallback(async () => {
     if (account.accountId) {
       setBalance(await accountBalance());
@@ -36,8 +39,12 @@ const App = function AppWrapper() {
           <main>
           {account.accountId === "Owner.testnet" ? (
             <h1>This is the owner</h1>
-
-          ): (<h1> this is not the owner</h1>)}
+            //ALI should do this part
+          ): 
+            (
+              <Form/>
+            )
+          }
           </main>
         </Container>
 
