@@ -37,7 +37,7 @@ return(
             />
         </label>
     </div>
-    <button onClick={handleSubmit}> Submit Form</button>
+    <button onClick={handleSubmit}> Submit Form </button>
     </>
 )
 };
