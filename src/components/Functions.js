@@ -24,19 +24,8 @@ const Functions = () => {
     }
   };
 
-  const createNewProfile = async () => {
-  try {
-    setLoading(true);
-    alert(`Creating Profile`)
-
-    setUserId( await createProfile());
-    alert(`Done`)
-
-  } catch (error) {
-     alert(error) ;
-  } finally {
-    setLoading(false);
-  }
+  const createNewProfile = ()=> {
+    createProfile();  
 };
 
 const addVerification = async (userId) => {
@@ -56,7 +45,7 @@ return (
         {userId === "None" ? (
             <button onClick={createNewProfile}> Create Account</button>
         ): (
-            <Form/>
+            <h1> user : {userId}</h1>
         )}
         </>
     ) : (
