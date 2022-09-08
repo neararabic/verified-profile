@@ -6,6 +6,7 @@ import Wallet from "./components/Wallet";
 import coverImg from "./cover.png";
 import "./App.css";
 import Functions from "./components/Functions"
+import Users from "./components/users"
 
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
@@ -40,7 +41,7 @@ const App = function AppWrapper() {
           <main>
           {account.accountId === "Owner.testnet" ? (
             <h1>This is the owner</h1>
-            //ALI should do this part
+            
           ): 
             (
               <Functions/>
