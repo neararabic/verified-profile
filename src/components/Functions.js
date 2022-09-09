@@ -18,7 +18,7 @@ const Functions = () => {
       setLoading(true);
       SetVerificationType(await isAccountVerified({userId}));
     } catch (error) {
-      console.log({ error });
+      console.log(error);
     } finally {
       setLoading(false);
     }
@@ -29,7 +29,7 @@ const Functions = () => {
       setLoading(true);
       SetVerificationType(await setUserId(createProfile()));
     } catch (error) {
-      console.log({ error });
+      console.log(error);
     } finally {
       setLoading(false);
     }  
@@ -40,7 +40,7 @@ const addVerification = async (userId) => {
     setLoading(true);
     await verifyAccount({userId});
   } catch (error) {
-    console.log({ error });
+    console.log(error);
   } finally {
     setLoading(false);
   }
@@ -50,7 +50,7 @@ return (
     {!loading ? (
         <>
         {userId === "None" ? (
-            <button onClick={createNewProfile}> Create Account</button>
+            <button onClick={createNewProfile}>Create Account</button>
         ): (
             <h1> user : {userId}</h1>
         )}

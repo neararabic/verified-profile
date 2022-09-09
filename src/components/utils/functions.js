@@ -8,12 +8,7 @@ export function isAccountVerified({accountID}) {
 }
 
 export  function createProfile() {
-  console.log(window.contract);
-  window.contract.createProfile().then((d)=>{
-    console.log(d );
-  });
-
-  return "window.contract.createProfile(); "
+  return window.contract.createProfile();
 }
 
 export async function verifyAccount({accountID,verification}){
