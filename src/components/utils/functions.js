@@ -1,16 +1,18 @@
-
-
+import {parseNearAmount} from "near-api-js/lib/utils/format";
 const GAS = 100000000000000;
-const Deposit = 100000000000000;
 
-export function isAccountVerified({accountID}) {
-  return window.contract.isAccountVerified({ accountID });
+export function isAccountVerified(ID) {
+  return window.contract.isAccountVerified({ accountID :  ID} ,GAS , parseNearAmount("1"));
 }
 
 export  function createProfile() {
   return window.contract.createProfile();
 }
 
-export async function verifyAccount({accountID,verification}){
-  await window.contract.verifyAccount({accountID, verification}, GAS,Deposit); 
+export async function verifyAccount(ID,Type){
+  await window.contract.verifyAccount({accountID : ID, verification : Type } ,GAS); 
+}
+
+export async function getusersList(){
+  return window.contract.getusers(); 
 }

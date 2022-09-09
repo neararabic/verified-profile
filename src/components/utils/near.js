@@ -16,8 +16,8 @@ export async function initializeContract() {
       window.walletConnection.account(),
       nearEnv.contractName,
       {
-        viewMethods: ["isAccountVerified"],
-        changeMethods: ["verifyAccount", "createProfile"],
+        viewMethods: [ "getusers"],
+        changeMethods: ["verifyAccount", "createProfile","isAccountVerified"],
       }
     );
   }
