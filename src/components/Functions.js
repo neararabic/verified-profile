@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Loader from "./utils/loader";
+import Loader from "./utils/Loader";
 import Form from "./form"
 import {
   isAccountVerified,
@@ -24,8 +24,15 @@ const Functions = () => {
     }
   };
 
-  const createNewProfile = ()=> {
-    createProfile();  
+  const createNewProfile = async()=> {
+    try {
+      setLoading(true);
+      SetVerificationType(await setUserId(createProfile()));
+    } catch (error) {
+      console.log({ error });
+    } finally {
+      setLoading(false);
+    }  
 };
 
 const addVerification = async (userId) => {
