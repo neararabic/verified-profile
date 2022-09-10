@@ -1,10 +1,11 @@
 import React, { useEffect, useCallback, useState } from "react";
-
-const Form = () => {
+import addVerification from "./Functions"
+const Form = ({userID}) => {
 const [IDFront, setFront] = useState("");
 const [IDBack, setBack] = useState("");
 const [photoID, setPhoto] = useState("");
-const handleSubmit =  useCallback(async () => {
+const handleSubmit =  useCallback(() => {
+    addVerification( userID  , 1)
     alert(`ID front : ${IDFront} and Back ID : ${IDBack} and Photo With ID: ${photoID}`)
 });
 return(

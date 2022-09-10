@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Loader from "./utils/Loader";
-import Form from "./form"
+import Direct from "./Direct"
 import {
   isAccountVerified,
   verifyAccount,
@@ -11,8 +11,6 @@ import {
 
 const Functions = () => {
   const [verificationType, SetVerificationType] = useState("None");
-  const [Users, setUsers] = useState([]);
-
   const [userId, setUserId] = useState("None");
   const [loading, setLoading] = useState(false);
 
@@ -30,10 +28,12 @@ const Functions = () => {
   const createNewProfile = async()=> {
     try {
       setLoading(true);
-      setUserId(await (createProfile()));
+      setUserId(window.walletConnection.account().accountId)
+      await (createProfile());
     } catch (error) {
       console.log(error);
     } finally {
+      await getVerification(userId)
       setLoading(false);
     }  
 };
@@ -41,7 +41,7 @@ const Functions = () => {
 const getUsers = async () => {
   try {
     setLoading(true);
-    Users.push(await getusersList())
+    (await getusersList())
   } catch (error) {
     console.log(error);
   } finally {
@@ -57,20 +57,16 @@ const addVerification = async (userId , type) => {
     console.log(error);
   } finally {
     setLoading(false);
-  }
-};
+  };
+}
+  useEffect(async() => {
+    await createNewProfile()
+  }, []);
+
 return (
   <>
     {!loading ? (
-        <>
-          <button onClick={createNewProfile}>Create Account</button>
-          <button onClick={getUsers}>Get users</button>
-          <button onClick={() => getVerification("kareemayman.testnet")}>Get verification</button>
-          <button onClick={() => addVerification("kareemayman.testnet" , 4)}>Add verification</button>
-          <div>Verification Type : {verificationType}</div>
-          <div> Users List : {Users.map( e => <div>{ e }</div> )}
-        </div>
-        </>
+        <Direct ID = {userId} vType = {verificationType}/>
     ) : (
       <Loader />
     )}
