@@ -10,8 +10,8 @@ import {
 
 
 const Functions = () => {
-  const [verificationType, SetVerificationType] = useState("None");
-  const [userId, setUserId] = useState("None");
+  const [verificationType, SetVerificationType] = useState("type");
+  const [userId, setUserId] = useState("ID");
   const [loading, setLoading] = useState(false);
 
   const getVerification = async (userId) => {
@@ -33,7 +33,6 @@ const Functions = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      await getVerification(userId)
       setLoading(false);
     }  
 };
@@ -66,7 +65,13 @@ const addVerification = async (userId , type) => {
 return (
   <>
     {!loading ? (
-        <Direct ID = {userId} vType = {verificationType}/>
+      <>
+      <div>
+      <button onClick={() => getVerification(userId)}>V</button>
+      <button onClick={<Direct ID = {userId} vType = {verificationType}/>}>load</button>
+      </div>
+      </>
+
     ) : (
       <Loader />
     )}
