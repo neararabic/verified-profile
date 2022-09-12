@@ -12,7 +12,7 @@ return(
     <>
     <h1>Please fill this for to verify your profile</h1>
     <div>
-        <label> Google Drive link of your ID front:
+        <label> ID front:
             <input 
                 type="text" 
                 value={IDFront}
@@ -21,7 +21,7 @@ return(
         </label>
     </div>
     <div>
-        <label>Google Drive link of your ID Back:
+        <label> ID Back:
             <input 
                 type="text" 
                 value={IDBack}
@@ -30,7 +30,7 @@ return(
         </label>
     </div>
     <div>
-        <label>Google Drive link of your Photo with the ID:
+        <label> Your Photo with the ID:
             <input 
                 type="text" 
                 value={photoID}
