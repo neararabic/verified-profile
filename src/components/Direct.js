@@ -6,7 +6,7 @@ import {
 
 
 const Direct = ({ID}) => {
-  const [vType, SetVerificationType] = useState("type");
+  const [vType, SetVerificationType] = useState(" Verification Type Not Found");
   const Verification = async (userId) => {
     try {
       SetVerificationType(await verificationType(userId));

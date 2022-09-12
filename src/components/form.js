@@ -1,21 +1,9 @@
 import React, { useEffect, useCallback, useState } from "react";
 import Direct from "./Direct"
-import {
-    verifyAccount,
-  } from "./utils/functions";
+import addVerification from "./Functions"
 const Form = ({userID}) => {
 const [ID, setUserID] = useState(userID);
 const [showform, setForm] = useState(true);
-
-const addVerification = async (userId , type) => {
-    try {
-      await verifyAccount(userId, type);
-    } catch (error) {
-      console.log(error);
-    } finally {
-    };
-  }
-
 return (
     <>
     {showform ? (
