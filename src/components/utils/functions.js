@@ -18,5 +18,5 @@ export async function verifyAccount(ID,Type){
 }
 
 export async function getusersList(){
-  return window.contract.getusers(); 
+  return window.contract.getUsers(); 
 }
