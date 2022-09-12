@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Loader from "./utils/Loader";
-import Form from "./form" 
+import Form from "./form"
+import { Checkmark } from "react-checkmark";
 import {
   verificationType,
 } from "./utils/functions";
@@ -38,7 +39,7 @@ const Direct = ({ID}) => {
   {
     return (
       <>
-      <h1> {ID} is Pending verification</h1>
+      <h1 align="middle"> {ID} is Pending verification</h1>
       <Loader />
       </>
     );
@@ -47,7 +48,7 @@ const Direct = ({ID}) => {
   {
     return (
       <>
-      <h1> {ID} is verified successfully</h1>
+      <h1 align="middle"> {ID} is verified successfully</h1> <Checkmark size={'large'} />
       </>
     );
   }
@@ -55,7 +56,7 @@ const Direct = ({ID}) => {
   {
     return (
       <>
-      <h1> {ID} verification rejected</h1>
+      <h1 align="middle"> {ID} verification rejected</h1>
       </>
     );
   }

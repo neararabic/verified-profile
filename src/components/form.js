@@ -25,7 +25,7 @@ return (
     {!loading ? (
         <div>
         {showform ? (
-            <button onClick={() => addVerification( ID  , 1)}> Submit Form </button>
+            <button align="middle" onClick={() => addVerification( ID  , 1)}> Submit Form </button>
         ) : ( <Direct ID = {ID}/>)}
         </div>
     ): ( <Loader />)}
