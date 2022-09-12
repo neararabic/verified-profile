@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import Loader from "./utils/Loader";
 import Form from "./form" 
 import {
   verificationType,
@@ -29,7 +30,7 @@ const Direct = ({ID}) => {
   {
     return (
       <>
-      <h1> {ID} is marked as a spam account</h1>
+      <h1 align="middle"> {ID} is marked as a spam account</h1>
       </>
     );
   }
@@ -38,6 +39,7 @@ const Direct = ({ID}) => {
     return (
       <>
       <h1> {ID} is Pending verification</h1>
+      <Loader />
       </>
     );
   }
