@@ -1,44 +1,26 @@
 import React, { useEffect, useCallback, useState } from "react";
-import addVerification from "./Functions"
+import Direct from "./Direct"
+import {
+    verifyAccount,
+  } from "./utils/functions";
 const Form = ({userID}) => {
-const [IDFront, setFront] = useState("");
-const [IDBack, setBack] = useState("");
-const [photoID, setPhoto] = useState("");
-const handleSubmit =  useCallback(() => {
-    addVerification( userID  , 1)
-    alert(`ID front : ${IDFront} and Back ID : ${IDBack} and Photo With ID: ${photoID}`)
-});
-return(
+const [ID, setUserID] = useState(userID);
+const [showform, setForm] = useState(true);
+
+const addVerification = async (userId , type) => {
+    try {
+      await verifyAccount(userId, type);
+    } catch (error) {
+      console.log(error);
+    } finally {
+    };
+  }
+
+return (
     <>
-    <h1>Please fill this for to verify your profile</h1>
-    <div>
-        <label> ID front:
-            <input 
-                type="text" 
-                value={IDFront}
-                onChange={(e) => setFront(e.target.value)}
-            />
-        </label>
-    </div>
-    <div>
-        <label> ID Back:
-            <input 
-                type="text" 
-                value={IDBack}
-                onChange={(e) => setBack(e.target.value)}
-            />
-        </label>
-    </div>
-    <div>
-        <label> Your Photo with the ID:
-            <input 
-                type="text" 
-                value={photoID}
-                onChange={(e) => setPhoto(e.target.value)}
-            />
-        </label>
-    </div>
-    <button onClick={handleSubmit}> Submit Form </button>
+    {showform ? (
+        <button onClick={() => addVerification( ID  , 1)}> Submit Form </button>
+    ): ( <Direct ID = {ID}/>)}
     </>
 )
 };

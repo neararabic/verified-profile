@@ -59,14 +59,14 @@ const addVerification = async (userId , type) => {
   };
 }
   useEffect(async() => {
-    await createNewProfile().then(getVerification(userId))
+    await createNewProfile()
   }, []);
 
 return (
   <>
     {!loading ? (
       <>
-      <Direct ID = {userId} vType = {verificationType}/>
+      <Direct ID = {userId}/>
       </>
 
     ) : (

@@ -1,8 +1,22 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Form from "./form" 
-import getVerification from "./Functions"
+import {
+  verificationType,
+} from "./utils/functions";
 
-const Direct = ({ID , vType}) => {
+
+const Direct = ({ID}) => {
+  const [vType, SetVerificationType] = useState("type");
+  const Verification = async (userId) => {
+    try {
+      SetVerificationType(await verificationType(userId));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(async() => {
+    await Verification(ID)
+  }, []);
   if(vType === "New")
   {
     return (

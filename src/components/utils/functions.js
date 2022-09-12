@@ -9,6 +9,10 @@ export  function createProfile() {
   return window.contract.createProfile();
 }
 
+export  function verificationType(ID) {
+  return window.contract.verificationPerUser({ accountID :  ID});
+}
+
 export async function verifyAccount(ID,Type){
   await window.contract.verifyAccount({accountID : ID, verification : Type } ,GAS); 
 }
