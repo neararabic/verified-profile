@@ -4,7 +4,7 @@ import { getusersList } from "./utils/functions";
 
 const Users = () => {
 
-function getData(callback) {
+function usersList(callback) {
   fetch(getusersList)
     .then(results => {
       return results.json();
@@ -23,7 +23,7 @@ class Button extends React.Component {
 }
 
 handleClick() {
-  this.props.getData(data => this.setState({ data }));
+  this.props.usersList(data => this.setState({ data }));
 }
 
 _renderUsers() {
@@ -46,7 +46,7 @@ render() {
   }
 }
 
-ReactDOM.render(<Button getData={ getData }/>, document.getElementById("root"));
+ReactDOM.render(<Button usersList={ usersList }/>, document.getElementById("root"));
 };
 export default Users
 
