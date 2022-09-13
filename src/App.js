@@ -40,8 +40,7 @@ const App = function AppWrapper() {
           <dev> <h1 align="middle">Verified Accounts</h1></dev>
           <main>
           {account.accountId === "Owner.testnet" ? (
-            <h1>This is the owner</h1>
-            //ALI is working on 
+            <><h1>This is the owner</h1><Main /></>
           ): 
             (
               <Functions/>
