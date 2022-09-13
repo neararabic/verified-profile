@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import Loader from "./utils/loader";
+import Loader from "./utils/Loader";
 import Direct from "./Direct"
 import {
   verifyAccount,
@@ -7,9 +7,7 @@ import {
   getusersList,
 } from "./utils/functions";
 
-
 const Functions = () => {
-  const [verificationType, SetVerificationType] = useState("type");
   const [userId, setUserId] = useState("ID");
   const [loading, setLoading] = useState(false);
 
