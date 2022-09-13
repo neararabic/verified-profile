@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import Loader from "./utils/Loader";
+import Loader from "./utils/loader";
 import Form from "./form"
 import { Checkmark } from "react-checkmark";
 import {
