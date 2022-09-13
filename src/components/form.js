@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useState } from "react";
 import Direct from "./Direct"
-import Loader from "./utils/loader";
+import Loader from "./utils/Loader";
 import {
     verifyAccount,
   } from "./utils/functions";

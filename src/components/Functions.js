@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from "react";
-import Loader from "./utils/loader";
+import Loader from "./utils/Loader";
 import Direct from "./Direct"
 import {
-  verifyAccount,
   createProfile,
-  getusersList,
 } from "./utils/functions";
 
 const Functions = () => {
@@ -22,19 +20,6 @@ const Functions = () => {
       setLoading(false);
     }  
 };
-
-const getUsers = async () => {
-  try {
-    setLoading(true);
-    (await getusersList())
-  } catch (error) {
-    console.log(error);
-  } finally {
-    setLoading(false);
-  }
-};
-
-
   useEffect(async() => {
     await createNewProfile()
   }, []);

@@ -6,7 +6,7 @@ import Wallet from "./components/Wallet";
 import coverImg from "./cover.png";
 import "./App.css";
 import Functions from "./components/Functions"
-import Main from "./components/users/main"
+import Admin from "./components/admin"
 
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
@@ -39,8 +39,8 @@ const App = function AppWrapper() {
           </Nav>
           <dev> <h1 align="middle">Verified Accounts</h1></dev>
           <main>
-          {account.accountId === "Owner.testnet" ? (
-            <><h1>This is the owner</h1><Main /></>
+          {account.accountId === "kareemayman.testnet" ? (
+            <Admin/>
           ): 
             (
               <Functions/>
