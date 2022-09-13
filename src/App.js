@@ -6,22 +6,22 @@ import Wallet from "./components/Wallet";
 import coverImg from "./cover.png";
 import "./App.css";
 import Functions from "./components/Functions"
+import Users from "./components/users"
 
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
+  const [balance, setBalance] = useState("0");
 
-  const [balance, setBalance] = useState('0');
 
   const getBalance = useCallback(async () => {
     if (account.accountId) {
       setBalance(await accountBalance());
     }
-  }, [account]);
+  });
 
   useEffect(() => {
     getBalance();
   }, [getBalance]);
-
 
   return (
     <>
@@ -41,7 +41,7 @@ const App = function AppWrapper() {
           <main>
           {account.accountId === "Owner.testnet" ? (
             <h1>This is the owner</h1>
-            //Ali should do this part
+            //ALI is working on 
           ): 
             (
               <Functions/>
