@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 
 
-import { getusersList,getWallet } from "../utils/functions";
+import { getUsers, getWallet } from "../lib/near";
 import UsersList from "./users-list";
 
 function Users(props) {
@@ -29,7 +29,7 @@ function Users(props) {
     setLoading(true);
     (async () => {
       try {
-        const result = await getusersList(wallet);
+        const result = await getUsers(wallet);
         const {
           status: { SuccessValue },
         } = result;

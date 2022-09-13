@@ -6,7 +6,7 @@ import Wallet from "./components/Wallet";
 import coverImg from "./cover.png";
 import "./App.css";
 import Functions from "./components/Functions"
-import Users from "./components/users"
+import Main from "./components/users/main"
 
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
