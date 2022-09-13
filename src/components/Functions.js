@@ -7,9 +7,7 @@ import {
   getusersList,
 } from "./utils/functions";
 
-
 const Functions = () => {
-  const [verificationType, SetVerificationType] = useState("type");
   const [userId, setUserId] = useState("ID");
   const [loading, setLoading] = useState(false);
 
