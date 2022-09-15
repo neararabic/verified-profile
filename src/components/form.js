@@ -77,7 +77,7 @@ return (
           <input  type="file" multiple onChange={handleChange} />          
           </div>
           <div> 
-          <button onClick={handleUpload}> Submit Form </button>
+          <button  onClick={handleUpload}> Submit Form </button>
           </div>
           </div>
         ) : ( <Direct ID = {ID}/>)}
