@@ -3,14 +3,22 @@ import Loader from "./utils/loader";
 import {
     verifyAccount,
     getPendingUsers,
+    getNewUsers,
+    getVerifiedUsers,
+    getRejectedUsers,
+    getSpamUsers,
   } from "./utils/functions";
   const Admin = () => {
-    const [usersList, setUserList] = useState([]);
+    const [pendingList, setPending] = useState([]);
+    const [newList, setNew] = useState([]);
+    const [rejectedList, setRejected] = useState([]);
+    const [verifiedList, setVerified] = useState([]);
+    const [spamList, setSpam] = useState([]);
     const [loading, setLoading] = useState(false);
-    const getUsers = async () => {
+    const getPending = async () => {
         try {
           setLoading(true);
-          setUserList(await getPendingUsers())
+          setPending(await getPendingUsers())
         } catch (error) {
           console.log(error);
         } finally {
@@ -27,28 +35,93 @@ import {
             setLoading(false);
           };
       };
+
+      const getNew = async () => {
+        try {
+          setLoading(true);
+          setNew(await getNewUsers())
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      const getRejected = async () => {
+        try {
+          setLoading(true);
+          setRejected(await getRejectedUsers())
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      const getVerified = async () => {
+        try {
+          setLoading(true);
+          setVerified(await getVerifiedUsers())
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      const getSpam = async () => {
+        try {
+          setLoading(true);
+          setSpam(await getSpamUsers())
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setLoading(false);
+        }
+      };
+
       useEffect(async() => {
-        await getUsers()
-      }, []);    
-      if(usersList.length === 0)
-      {
-        return(
-          <>
-          <h1 align= "middle"> All Users Have Been Verified!</h1>
-          </>
-        )
-      }
-      else
-      {
+        await getPending()
+        await getNew()
+        await getRejected()
+        await getVerified()
+        await getSpam()
+      }, []);
+   
       return (
         <>
           {!loading ? (
             <>
             <ol>
-             {usersList.map((usersList) => (
-              <li>{usersList} <button onClick={() => verifyUser(usersList).then(getUsers)}>Verify</button> </li>
+             {pendingList.map((pendingList) => (
+              <li>{pendingList} <button onClick={() => verifyUser(pendingList).then(getPending)}>Verify</button> </li>
             ))}
             </ol>
+
+            <ol>
+             {newList.map((newList) => (
+              <li>{newList}   "New"</li>
+            ))}
+            </ol>
+
+            <ol>
+             {rejectedList.map((rejectedList) => (
+              <li>{rejectedList}   "Rejected"</li>
+            ))}
+            </ol>
+
+            <ol>
+             {verifiedList.map((verifiedList) => (
+              <li>{verifiedList}   "Verified"</li>
+            ))}
+            </ol>
+
+            <ol>
+             {spamList.map((spamList) => (
+              <li>{spamList}   "Verified"</li>
+            ))}
+            </ol>
+
             </>
       
           ) : (
@@ -56,6 +129,6 @@ import {
           )}
         </>
       );
-        }
+        
   }
   export default Admin;
