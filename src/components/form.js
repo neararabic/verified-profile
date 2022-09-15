@@ -45,12 +45,6 @@ const handleUpload = () => {
   promises.push(uploadTask);
   uploadTask.on(
       "state_changed",
-      (snapshot) => {
-          const percent = Math.round(
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
-          setPercent(percent);
-      },
       (err) => console.log(err),
       async () => {
           getDownloadURL(uploadTask.snapshot.ref).then((url) => {
@@ -81,10 +75,6 @@ return (
           <div style={style}>3. Picture of you with the ID</div>
           <div> 
           <input  type="file" multiple onChange={handleChange} />          
-          </div>
-
-          <div> 
-          <p>{percent} % of the upload is done</p>
           </div>
           <div> 
           <button onClick={handleUpload}> Submit Form </button>
