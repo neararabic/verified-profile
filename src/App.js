@@ -7,6 +7,7 @@ import coverImg from "./cover.png";
 import "./App.css";
 import Functions from "./components/Functions"
 import Admin from "./components/admin"
+import image from "./components/image.jpg"
 
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
@@ -29,15 +30,34 @@ const App = function AppWrapper() {
     }
   });
 
+  const style = {
+    container: {
+      backgroundImage: `url(${image})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      width: '100vw',
+      height: '100vh'
+  }
+  };
+
   useEffect(() => {
     getBalance();
   }, [getBalance]);
 
   return (
     <>
+    <div style={{       
+      backgroundImage: `url(${image})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      width: '100vw',
+      height: '100vh',
+      color:"white" }}>
       {account.accountId ? (
         <Container fluid="md">
-          <Nav className="justify-content-end pt-3 pb-5">
+          <Nav className="justify-content-end pt-3 pb-3">
             <Nav.Item>
               <Wallet
                 address={account.accountId}
@@ -48,7 +68,7 @@ const App = function AppWrapper() {
             </Nav.Item>
           </Nav>
           <dev> <h1 align="middle">Verified Accounts</h1></dev>
-          <main>
+          <main style={style}>
           {isAdmin()? (
             <Admin/>
           ): 
@@ -61,6 +81,7 @@ const App = function AppWrapper() {
       ) : (
         <Cover name="Verified Accounts" login={login} coverImg={coverImg}/>
       )}
+      </div>
     </>
   );
 }

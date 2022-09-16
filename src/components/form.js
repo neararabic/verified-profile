@@ -30,8 +30,7 @@ const Form = ({ userID }) => {
     const uploadTask = uploadBytesResumable(storageRef, Newfile);
     uploadTask.on(
       "state_changed",
-      (snapshot) => {
-      },
+      (snapshot) => {},
       (err) => console.log(err),
       () => {
         // download url
@@ -48,8 +47,7 @@ const Form = ({ userID }) => {
     const uploadTask = uploadBytesResumable(storageRef, Newfile);
     uploadTask.on(
       "state_changed",
-      (snapshot) => {
-      },
+      (snapshot) => {},
       (err) => console.log(err),
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
@@ -65,8 +63,7 @@ const Form = ({ userID }) => {
     const uploadTask = uploadBytesResumable(storageRef, Newfile);
     uploadTask.on(
       "state_changed",
-      (snapshot) => {
-      },
+      (snapshot) => {},
       (err) => console.log(err),
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
@@ -84,30 +81,69 @@ const Form = ({ userID }) => {
       BackID: urls[1],
       PicWithID: urls[2],
     });
-    addVerification( ID  , 1)
+    addVerification(ID, 1);
   };
   const style = {
     padding: "10px",
     fontSize: "24px",
-    borderRightWidth: "10 px",
   };
   return (
     <>
       {!loading ? (
-        <div>
+        <div
+          style={{
+            padding: "10px",
+            fontSize: "30px",
+          }}
+        >
           {showform ? (
             <div>
               <div style={style}>
                 <p1>To be verified successfully Please upload 3 Pictures</p1>
               </div>
               <div style={style}>1. Picture of the ID front</div>
-              <input type="file" onChange={handleFrontID} />
+              <input
+                type="file"
+                onChange={handleFrontID}
+                style={{
+                  fontSize: "15px",
+                  paddingBottom: 25,
+                }}
+              />
               <div style={style}>2. Picture of the ID back</div>
-              <input type="file" onChange={handleBackID} />
+              <input
+                type="file"
+                onChange={handleBackID}
+                style={{
+                  fontSize: "15px",
+                  paddingBottom: 25,
+                }}
+              />
               <div style={style}>3. Picture of you with the ID</div>
-              <input type="file" onChange={handlePicWithID} />
+              <input
+                type="file"
+                onChange={handlePicWithID}
+                style={{
+                  fontSize: "15px",
+                  paddingBottom: 40,
+                }}
+              />
               <div>
-                <button onClick={submit}> Submit Form </button>
+                <button
+                  onClick={submit}
+                  style={{
+                    borderWidth: 2,
+                    borderColor: "rgba(0,0,0,0.2)",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: 500,
+                    height: 100,
+                    backgroundColor: "#fff",
+                    borderRadius: 50,
+                  }}
+                >
+                  Submit Form
+                </button>
               </div>
             </div>
           ) : (

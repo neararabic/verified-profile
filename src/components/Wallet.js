@@ -28,7 +28,7 @@ const Wallet = ({ address, amount, symbol, destroy }) => {
             <Dropdown.Item
               href={`https://explorer.testnet.near.org/accounts/${address}`}
               target='_blank'>
-              <Stack direction='horizontal' gap={2}>
+              <Stack direction='horizontal' gap={1}>
                 <i className='bi bi-person-circle fs-4' />
                 <span className='font-monospace'>{address}</span>
               </Stack>
