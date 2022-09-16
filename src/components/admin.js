@@ -94,7 +94,7 @@ import {
             <>
             <ol>
              {pendingList.map((pendingList) => (
-              <li>{pendingList} <button onClick={() => verifyUser(pendingList).then(getPending)}>Verify</button> </li>
+              <li>{pendingList}   "Pending"   <button onClick={() => verifyUser(pendingList).then(getPending)}>Verify</button> </li>
             ))}
             </ol>
 
@@ -118,7 +118,7 @@ import {
 
             <ol>
              {spamList.map((spamList) => (
-              <li>{spamList}   "Verified"</li>
+              <li>{spamList}   "Spam"</li>
             ))}
             </ol>
 
