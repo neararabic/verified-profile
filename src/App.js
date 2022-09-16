@@ -11,7 +11,17 @@ import Admin from "./components/admin"
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
   const [balance, setBalance] = useState("0");
+  const [adminList] = useState(["kareemayman.testnet"], ["aliabdallah.testnet"], ["mhassanist.testnet"]);
 
+
+  function isAdmin(){
+    for(let i = 0; i<adminList.length;i++){
+      if(account.accountId === adminList[i]){
+        return true
+      }
+    }
+    return false
+  }
 
   const getBalance = useCallback(async () => {
     if (account.accountId) {
@@ -39,7 +49,7 @@ const App = function AppWrapper() {
           </Nav>
           <dev> <h1 align="middle">Verified Accounts</h1></dev>
           <main>
-          {account.accountId === "kareemayman.testnet" ? (
+          {isAdmin()? (
             <Admin/>
           ): 
             (
