@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
+import { getFirestore } from "firebase/firestore";
+
  
 // Initialize Firebase
 const app = initializeApp ({
@@ -8,6 +10,8 @@ const app = initializeApp ({
     authDomain: "verified-profile.firebaseapp.com",
   
     projectId: "verified-profile",
+
+    databaseURL:"gs://verified-profile.appspot.com",
   
     storageBucket: "verified-profile.appspot.com",
   
@@ -20,4 +24,5 @@ const app = initializeApp ({
  
 // Firebase storage reference
 const storage = getStorage(app);
-export default storage;
+const db = getFirestore(app)
+export default {storage,db};

@@ -2,6 +2,7 @@ import React, { useEffect, useCallback, useState } from "react";
 import Direct from "./Direct"
 import Loader from "./utils/loader";
 import storage from "./storageconfig"
+import db from "./storageconfig"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import {
     verifyAccount,
@@ -13,6 +14,7 @@ const [loading, setLoading] = useState(false);
 const [showform, setForm] = useState(true);
 const [file, setFile] = useState([]);
 const [percent, setPercent] = useState(0);
+const [customerName, setCustomerName] = useState("");
 const [urls, setUrls] = useState([]);
 
 const addVerification = async (userId , type) => {
@@ -57,6 +59,12 @@ const handleUpload = () => {
     addVerification( ID  , 1)
   }
   }
+  const submit = (e) => {
+    e.preventDefault();
+    db.collection("Profiles").add({
+      name: customerName,
+    });
+  }
   const style = {
     padding: "10px",
     fontSize: "24px"
@@ -78,6 +86,14 @@ return (
           </div>
           <div> 
           <button  onClick={handleUpload}> Submit Form </button>
+          </div>
+          <div>       
+          <input
+          type="text"
+          placeholder="Name"
+          value={customerName}
+          onChange={(e) => setCustomerName(e.target.value)}/>
+          <button onClick={submit}>Submit</button>
           </div>
           </div>
         ) : ( <Direct ID = {ID}/>)}
