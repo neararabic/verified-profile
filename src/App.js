@@ -30,17 +30,6 @@ const App = function AppWrapper() {
     }
   });
 
-  const style = {
-    container: {
-      backgroundImage: `url(${image})`,
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      width: '100vw',
-      height: '100vh'
-  }
-  };
-
   useEffect(() => {
     getBalance();
   }, [getBalance]);
@@ -48,7 +37,7 @@ const App = function AppWrapper() {
   return (
     <>
     <div style={{       
-      backgroundImage: `url(${image})`,
+      background: "#000",
       backgroundPosition: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
@@ -68,7 +57,7 @@ const App = function AppWrapper() {
             </Nav.Item>
           </Nav>
           <dev> <h1 align="middle">Verified Accounts</h1></dev>
-          <main style={style}>
+          <main>
           {isAdmin()? (
             <Admin/>
           ): 
