@@ -43,17 +43,6 @@ const Admin = () => {
     }
   };
 
-  // const getPending = async () => {
-  //     try {
-  //       setLoading(true);
-  //       setPending(await getPendingUsers())
-  //     } catch (error) {
-  //       console.log(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
   const refresh = async () => {
     try {
       setLoading(true);
@@ -79,50 +68,6 @@ const Admin = () => {
       setLoading(false);
     }
   };
-
-  //   const getNew = async () => {
-  //     try {
-  //       setLoading(true);
-  //       setNew(await getNewUsers())
-  //     } catch (error) {
-  //       console.log(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   const getRejected = async () => {
-  //     try {
-  //       setLoading(true);
-  //       setRejected(await getRejectedUsers())
-  //     } catch (error) {
-  //       console.log(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   const getVerified = async () => {
-  //     try {
-  //       setLoading(true);
-  //       setVerified(await getVerifiedUsers())
-  //     } catch (error) {
-  //       console.log(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   const getSpam = async () => {
-  //     try {
-  //       setLoading(true);
-  //       setSpam(await getSpamUsers())
-  //     } catch (error) {
-  //       console.log(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
 
   useEffect(() => {
     getUsers();
@@ -157,6 +102,7 @@ const Admin = () => {
     <>
       {!loading ? (
         <>
+
           <div style={{ background: "#000" }}>
             <div>
               <h1>New</h1>
@@ -238,35 +184,7 @@ const Admin = () => {
               </ol>
             </div>
           </div>
-          {/* <ol>
-             {pendingList.map((pendingList) => (
-              <li>{pendingList}   "Pending"   <button onClick={() => verifyUser(pendingList).then(getPending)}>Verify</button> </li>
-            ))}
-            </ol>
 
-            <ol>
-             {newList.map((newList) => (
-              <li>{newList}   "New"</li>
-            ))}
-            </ol>
-
-            <ol>
-             {rejectedList.map((rejectedList) => (
-              <li>{rejectedList}   "Rejected"</li>
-            ))}
-            </ol>
-
-            <ol>
-             {verifiedList.map((verifiedList) => (
-              <li>{verifiedList}   "Verified"</li>
-            ))}
-            </ol>
-
-            <ol>
-             {spamList.map((spamList) => (
-              <li>{spamList}   "Spam"</li>
-            ))}
-            </ol> */}
         </>
       ) : (
         <Loader />

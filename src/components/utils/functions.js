@@ -13,22 +13,6 @@ export  function verificationType(ID) {
   return window.contract.verificationPerUser({ accountID :  ID});
 }
 
-export  function getPendingUsers() {
-  return window.contract.getPendingUsers();
-}
-export  function getNewUsers() {
-  return window.contract.getNewUsers();
-}
-export  function getVerifiedUsers() {
-  return window.contract.getVerifiedUsers();
-}
-export  function getRejectedUsers() {
-  return window.contract.getRejectedUsers();
-}
-export  function getSpamUsers() {
-  return window.contract.getSpamUsers();
-}
-
 export async function verifyAccount(ID,Type){
   await window.contract.verifyAccount({accountID : ID, verification : Type } ,GAS); 
 }
