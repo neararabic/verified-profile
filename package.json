@@ -11,7 +11,6 @@
     "big-number": "^2.0.0",
     "bootstrap": "^5.1.3",
     "bootstrap-icons": "^1.7.1",
-    "cross-env": "^7.0.3",
     "firebase": "^9.9.4",
     "near-api-js": "^0.43.1",
     "prop-types": "^15.7.2",
@@ -27,8 +26,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start --openssl-legacy-provider start",
-    "build": "react-scripts build --openssl-legacy-provider build",
+    "start": "react-scripts  --openssl-legacy-provider start",
+    "build": "react-scripts  --openssl-legacy-provider build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
