@@ -42,7 +42,7 @@ const Admin = () => {
       setLoading(false);
     }
   };
-
+  
   const refresh = async () => {
     try {
       setLoading(true);
@@ -102,7 +102,6 @@ const Admin = () => {
     <>
       {!loading ? (
         <>
-
           <div style={{ background: "#000" }}>
             <div>
               <h1>New</h1>
@@ -184,7 +183,7 @@ const Admin = () => {
               </ol>
             </div>
           </div>
-
+         
         </>
       ) : (
         <Loader />
