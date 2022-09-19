@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState } from "react";
+import React, {useState } from "react";
 import Direct from "./Direct";
 import Loader from "./utils/loader";
 import { colRef } from "./storageconfig";
@@ -12,7 +12,7 @@ const Form = ({ userID }) => {
   const [loading, setLoading] = useState(false);
   const [showform, setForm] = useState(true);
   var [urls] = useState([]);
-
+//check file size
   const addVerification = async (userId, type) => {
     try {
       setLoading(true);
@@ -98,7 +98,7 @@ const Form = ({ userID }) => {
           {showform ? (
             <div  align="middle" >
               <div style={{fontSize: "35px"}}>
-                <p1>To be verified successfully Please upload 3 Pictures</p1>
+                <p>To be verified successfully Please upload 3 Pictures</p>
               </div>
               <div style={style}>1 - Picture of the ID front :</div>
               <input

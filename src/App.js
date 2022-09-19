@@ -7,7 +7,6 @@ import coverImg from "./cover.png";
 import "./App.css";
 import Functions from "./components/Functions"
 import Admin from "./components/admin"
-import image from "./components/image.jpg"
 
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
@@ -56,8 +55,8 @@ const App = function AppWrapper() {
               />
             </Nav.Item>
           </Nav>
-          <dev> <h1 align="middle">Verified Accounts</h1></dev>
-          <main>
+          <div> <h1>VProfile</h1></div>
+          <main style={{background: "#000"}}>
           {isAdmin()? (
             <Admin/>
           ): 

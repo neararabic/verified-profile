@@ -45,7 +45,6 @@ const Direct = ({ID}) => {
     return (
       <>
       <h1 align="middle"> {ID} is Pending verification</h1>
-      <Loader />
       </>
     );
   }
@@ -69,6 +68,6 @@ const Direct = ({ID}) => {
   else{
     <Loader/>
   }
-  return <h1> Error : {vType}</h1>;
+  return <Loader/>
 };
 export default Direct;
