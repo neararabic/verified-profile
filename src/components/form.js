@@ -5,7 +5,7 @@ import { colRef } from "./storageconfig";
 import storage from "./storageconfig";
 import { doc, setDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { verifyAccount } from "./utils/functions";
+import { changeToPending } from "./utils/functions";
 
 const Form = ({ userID }) => {
   const [ID] = useState(userID);
@@ -13,10 +13,10 @@ const Form = ({ userID }) => {
   const [showform, setForm] = useState(true);
   var [urls] = useState([]);
 //check file size
-  const addVerification = async (userId, type) => {
+  const addVerification = async (userId) => {
     try {
       setLoading(true);
-      await verifyAccount(userId, type);
+      await changeToPending(userId);
       setForm(false);
     } catch (error) {
       console.log(error);
@@ -80,7 +80,7 @@ const Form = ({ userID }) => {
       BackID: urls[1],
       PicWithID: urls[2],
     });
-    addVerification(ID, 1);
+    addVerification(ID);
   };
   const style = {
     padding: "10px",

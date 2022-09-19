@@ -24,7 +24,7 @@ const Direct = ({ID}) => {
     await Verification(ID)
   }, []);
   if(!loading){
-    if(vType === "New")
+    if(vType === "New" )
   {
     return (
         <>
@@ -44,7 +44,7 @@ const Direct = ({ID}) => {
   {
     return (
       <>
-      <h1 align="middle"> {ID} is Pending verification</h1>
+      <h1 align="middle"> {ID} is Pending Verification</h1>
       </>
     );
   }
@@ -60,7 +60,8 @@ const Direct = ({ID}) => {
   {
     return (
       <>
-      <h1 align="middle"> {ID} verification rejected</h1>
+      <h1 align="middle"> {ID} Verification Rejected</h1>
+      <Form userID = {ID}/>
       </>
     );
   }
