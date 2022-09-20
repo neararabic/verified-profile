@@ -12,7 +12,7 @@ const Form = ({ userID }) => {
   const [loading, setLoading] = useState(false);
   const [showform, setForm] = useState(true);
   var [urls] = useState([]);
-//check file size
+
   const addVerification = async (userId) => {
     try {
       setLoading(true);
@@ -26,7 +26,14 @@ const Form = ({ userID }) => {
   };
   function handleFrontID(e) {
     const Newfile = e.target.files[0];
-    const storageRef = ref(storage, `/files/${Newfile.name}`);
+    if(Newfile.size / 1024 > 10240 )
+    {
+      alert("File size is too big\nPlease Choose Another File")
+      e.target.value = null;
+    }
+    else 
+    {
+    const storageRef = ref(storage, `/files/${userID} frontID`);
     const uploadTask = uploadBytesResumable(storageRef, Newfile);
     uploadTask.on(
       "state_changed",
@@ -40,9 +47,17 @@ const Form = ({ userID }) => {
       }
     );
   }
+}
   function handleBackID(e) {
     const Newfile = e.target.files[0];
-    const storageRef = ref(storage, `/files/${Newfile.name}`);
+    if(Newfile.size / 1024 > 10240 )
+    {
+      alert("File size is too big\nPlease Choose Another File")
+      e.target.value = null;
+    }
+    else 
+    {
+    const storageRef = ref(storage, `/files/${userID} BackID`);
     const uploadTask = uploadBytesResumable(storageRef, Newfile);
     uploadTask.on(
       "state_changed",
@@ -56,9 +71,17 @@ const Form = ({ userID }) => {
       }
     );
   }
+}
   function handlePicWithID(e) {
     const Newfile = e.target.files[0];
-    const storageRef = ref(storage, `/files/${Newfile.name}`);
+    if(Newfile.size / 1024 > 10240 )
+    {
+      alert("File size is too big\nPlease Choose Another File")
+      e.target.value = null;
+    }
+    else 
+    {
+    const storageRef = ref(storage, `/files/${userID} PicWithID`);
     const uploadTask = uploadBytesResumable(storageRef, Newfile);
     uploadTask.on(
       "state_changed",
@@ -71,16 +94,20 @@ const Form = ({ userID }) => {
         });
       }
     );
+    }
   }
 
   const submit = async () => {
     console.log(urls);
-    await setDoc(doc(colRef, ID), {
-      FrontID: urls[0],
-      BackID: urls[1],
-      PicWithID: urls[2],
-    });
-    addVerification(ID);
+    if(urls.length === 3)
+    {
+      await setDoc(doc(colRef, ID), {
+        FrontID: urls[0],
+        BackID: urls[1],
+        PicWithID: urls[2],
+      });
+      addVerification(ID);
+    }
   };
   const style = {
     padding: "10px",
@@ -103,6 +130,7 @@ const Form = ({ userID }) => {
               <div style={style}>1 - Picture of the ID front :</div>
               <input
                 type="file"
+                name="FrontID"
                 onChange={handleFrontID}
                 style={{
                   fontSize: "15px",
@@ -122,7 +150,8 @@ const Form = ({ userID }) => {
               <input
                 type="file"
                 onChange={handlePicWithID}
-                style={{
+                maxSize={2097152}
+                  style={{
                   fontSize: "15px",
                   paddingBottom: 35,
                 }}
