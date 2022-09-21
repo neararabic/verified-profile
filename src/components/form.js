@@ -150,7 +150,6 @@ const Form = ({ userID }) => {
               <input
                 type="file"
                 onChange={handlePicWithID}
-                maxSize={2097152}
                   style={{
                   fontSize: "15px",
                   paddingBottom: 35,
