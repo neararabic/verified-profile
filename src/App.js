@@ -39,7 +39,6 @@ const App = function AppWrapper() {
       background: "#000",
       backgroundPosition: 'center',
       backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
       width: '100vw',
       height: '100vh',
       color:"white" }}>
@@ -56,7 +55,7 @@ const App = function AppWrapper() {
             </Nav.Item>
           </Nav>
           <div> <h1>VProfile</h1></div>
-          <main style={{background: "#000"}}>
+          <main style={{height:" 100%"}}>
           {isAdmin()? (
             <Admin/>
           ): 
@@ -71,6 +70,7 @@ const App = function AppWrapper() {
       )}
       </div>
     </>
+    
   );
 }
 

@@ -26,7 +26,7 @@ const Form = ({ userID }) => {
   };
   function handleFrontID(e) {
     const Newfile = e.target.files[0];
-    if(Newfile.size / 1024 > 10240 )
+    if(Newfile.size / 1024 > 5000 )
     {
       alert("File size is too big\nPlease Choose Another File")
       e.target.value = null;
