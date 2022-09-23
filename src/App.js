@@ -11,7 +11,7 @@ import Admin from "./components/admin"
 const App = function AppWrapper() {
   const account = window.walletConnection.account();
   const [balance, setBalance] = useState("0");
-  const [adminList] = useState(["aliabdallah9.testnet", "mhassanist.testnet","kareemayman.testnet","hamzatest.tesnet"]);
+  const [adminList] = useState(["aliabdallah9.testnet", "mhassanist.testnet","kareemayman.testnet","hamzatest.testnet"]);
 
   
 
@@ -20,6 +20,7 @@ const App = function AppWrapper() {
       console.log("ID : " + account.accountId)
       console.log("Admin : " + adminList[i])
       if(account.accountId === adminList[i]){
+        console.log("IS ADMIN")
         return true
       }
     }

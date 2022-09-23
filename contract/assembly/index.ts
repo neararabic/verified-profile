@@ -22,24 +22,20 @@ export class Contract {
     "hamzatest.tesnet",
   ];
 
-accountExist(accountID: string):bool
-{
-  if(this.profilesList.contains(accountID))
-  {
-    return true
+  accountExist(accountID: string): bool {
+    if (this.profilesList.contains(accountID)) {
+      return true
+    }
+    return false
   }
-  return false
-}
 
-adminExist(accountID: string):bool
-{
-  for (let i: i32 = 0; i < this.adminList.length; i++)
-  {
-    if(accountID == this.adminList[i])
-    return true
+  adminExist(accountID: string): bool {
+    for (let i: i32 = 0; i < this.adminList.length; i++) {
+      if (accountID == this.adminList[i])
+        return true
+    }
+    return false
   }
-  return false
-}
 
   // This functions checks if the profile is already linked to this near account or not, if it isn't then it creates as new profile
   @mutateState()
@@ -66,7 +62,7 @@ adminExist(accountID: string):bool
   changeToPending(accountID: string): string {
     assert(
       context.predecessor == accountID ||
-        this.adminList.includes(context.predecessor),
+      this.adminList.includes(context.predecessor),
       "Access Denied"
     );
     assert(this.profilesList.contains(accountID), "This NEAR ID is missing");
@@ -76,7 +72,7 @@ adminExist(accountID: string):bool
   verificationPerUser(accountID: string): string {
     assert(
       context.predecessor == accountID ||
-        this.adminList.includes(context.predecessor),
+      this.adminList.includes(context.predecessor),
       "Access Denied"
     );
     let verificationType = this.profilesList.getSome(accountID);

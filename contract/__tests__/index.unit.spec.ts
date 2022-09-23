@@ -1,6 +1,6 @@
 import { Contract } from "../assembly";
 import { VMContext } from "near-mock-vm";
-import { u128} from "near-sdk-as";
+import { u128 } from "near-sdk-as";
 
 let contractt: Contract;
 const CREATOR_ACCOUNT_ID = "someone.NEAR";
@@ -20,7 +20,7 @@ describe("isAccountVerified function", () => {
         VMContext.setSigner_account_id("someone.NEAR")
         contractt.createProfile()
         expect(contractt.profilesList.contains(CURRENT_ACCOUNT_ID)).toBeTruthy()
-    }); 
+    });
 });
 
 describe("isAccountVerified function", () => {
@@ -29,7 +29,7 @@ describe("isAccountVerified function", () => {
         contractt.createProfile()
         VMContext.setAttached_deposit(u128.from(1))
         VMContext.setPredecessor_account_id("Owner.testnet")
-        contractt.verifyAccount("someone.NEAR" , 2)
+        contractt.verifyAccount("someone.NEAR", 2)
         expect(contractt.isAccountVerified("someone.NEAR")).toBe("2")
-    }); 
+    });
 });
